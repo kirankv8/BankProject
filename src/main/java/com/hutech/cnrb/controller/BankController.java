@@ -21,7 +21,7 @@ public class BankController {
 	private BankService bankService;
 	
 	@PostMapping("/register/bank")
-	public Bank registerBank(@RequestBody Bank bank)throws UserNameAlreadyExistException {
+	public Bank registerBank(@RequestBody Bank bank) {
 		return bankService.saveBank(bank);
 	}
 	

@@ -75,7 +75,7 @@ public class TrasactionServiceImpl implements TransationService {
 
 	@Override
 	public TransactionAverage getAverageTransaction(String bankId, String accountId, Integer month)
-		throws ResourceNotFoundException {
+			throws ResourceNotFoundException {
 		if (bankRepository.findByBankId(bankId) == null) {
 			throw new ResourceNotFoundException("given bankID is invalid", 404);
 		}
@@ -101,7 +101,7 @@ public class TrasactionServiceImpl implements TransationService {
 		int depositeCount = 0;
 
 		for (Transactions transa : transactions) {
-		  
+
 			if (transa.getDate().isBefore(today)) {
 				if (transa.getDescription().equalsIgnoreCase("deposite")) {
 					depositeAmount += transa.getTransactionAmount();
@@ -111,7 +111,7 @@ public class TrasactionServiceImpl implements TransationService {
 					withdrawCount++;
 				}
 			}
-		}	
+		}
 		double avgDeposit = depositeCount > 0 ? depositeAmount / depositeCount : 0;
 		double avgWithdrawal = withdrawCount > 0 ? withdrawAmount / withdrawCount : 0;
 		TransactionAverage average = new TransactionAverage();
@@ -119,4 +119,4 @@ public class TrasactionServiceImpl implements TransationService {
 		average.setAverageWithdraws(avgWithdrawal);
 		return average;
 	}
-}	
+}

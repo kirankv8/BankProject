@@ -19,15 +19,15 @@ public class Bank {
 	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	private Integer id;
 	
-	private final String bankName = "CANARA-BANK";
+	private String bankName ;
 
-	private final String ifsccode = "CNRB00541";
-
+	private  String ifsccode ;
+	
 	private double bankAmount;
 	
 	private String bankId;
 
-	private final String branchcode = "BRANCH-01";
+	private  String branchcode ;
 
 	@PostPersist
 	public void setBranchId() {
